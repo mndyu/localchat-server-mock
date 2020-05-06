@@ -2,80 +2,6 @@
 
 
 /**
- * グループ内メンバー一覧取得
- *
- * group_id Integer グループID
- * returns List
- **/
-exports.groupGroup_idMembersGET = function(group_id) {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = [ {
-  "name" : "name",
-  "id" : 0
-}, {
-  "name" : "name",
-  "id" : 0
-} ];
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  });
-}
-
-
-/**
- * グループ内のメンバー削除
- *
- * group_id Integer グループID
- * user_id Integer ユーザID
- * returns User
- **/
-exports.groupGroup_idMembersUser_idDELETE = function(group_id,user_id) {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = {
-  "pc_name" : "pc_name",
-  "name" : "name",
-  "id" : 0,
-  "ip_address" : "ip_address"
-};
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  });
-}
-
-
-/**
- * ユーザのメッセージ一送信
- *
- * message Message Message (optional)
- * returns Message
- **/
-exports.groupGroup_idMessagesPOST = function(message) {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = {
-  "author" : 6,
-  "channel" : 1,
-  "id" : 0,
-  "text" : 5
-};
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  });
-}
-
-
-/**
  * グループ一覧取得
  *
  * returns List
@@ -137,6 +63,80 @@ exports.groupsGroup_idGET = function(group_id) {
     examples['application/json'] = {
   "name" : "name",
   "id" : 0
+};
+    if (Object.keys(examples).length > 0) {
+      resolve(examples[Object.keys(examples)[0]]);
+    } else {
+      resolve();
+    }
+  });
+}
+
+
+/**
+ * グループ内メンバー一覧取得
+ *
+ * group_id Integer グループID
+ * returns List
+ **/
+exports.groupsGroup_idMembersGET = function(group_id) {
+  return new Promise(function(resolve, reject) {
+    var examples = {};
+    examples['application/json'] = [ {
+  "name" : "name",
+  "id" : 0
+}, {
+  "name" : "name",
+  "id" : 0
+} ];
+    if (Object.keys(examples).length > 0) {
+      resolve(examples[Object.keys(examples)[0]]);
+    } else {
+      resolve();
+    }
+  });
+}
+
+
+/**
+ * グループ内のメンバー削除
+ *
+ * group_id Integer グループID
+ * user_id Integer ユーザID
+ * returns User
+ **/
+exports.groupsGroup_idMembersUser_idDELETE = function(group_id,user_id) {
+  return new Promise(function(resolve, reject) {
+    var examples = {};
+    examples['application/json'] = {
+  "pc_name" : "pc_name",
+  "name" : "name",
+  "id" : 0,
+  "ip_address" : "ip_address"
+};
+    if (Object.keys(examples).length > 0) {
+      resolve(examples[Object.keys(examples)[0]]);
+    } else {
+      resolve();
+    }
+  });
+}
+
+
+/**
+ * ユーザのメッセージ一送信
+ *
+ * message Message Message (optional)
+ * returns Message
+ **/
+exports.groupsGroup_idMessagesPOST = function(message) {
+  return new Promise(function(resolve, reject) {
+    var examples = {};
+    examples['application/json'] = {
+  "author" : 6,
+  "channel" : 1,
+  "id" : 0,
+  "text" : 5
 };
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);

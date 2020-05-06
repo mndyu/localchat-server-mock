@@ -330,10 +330,10 @@ paths:
           schema:
             $ref: "#/definitions/Group"
       x-swagger-router-controller: "Default"
-  /group/{group_id}/members:
+  /groups/{group_id}/members:
     get:
       summary: "グループ内メンバー一覧取得"
-      operationId: "groupGroup_idMembersGET"
+      operationId: "groupsGroup_idMembersGET"
       parameters:
       - name: "group_id"
         in: "path"
@@ -349,10 +349,10 @@ paths:
             items:
               $ref: "#/definitions/Group"
       x-swagger-router-controller: "Default"
-  /group/{group_id}/members/{user_id}:
+  /groups/{group_id}/members/{user_id}:
     delete:
       summary: "グループ内のメンバー削除"
-      operationId: "groupGroup_idMembersUser_idDELETE"
+      operationId: "groupsGroup_idMembersUser_idDELETE"
       parameters:
       - name: "group_id"
         in: "path"
@@ -372,10 +372,10 @@ paths:
           schema:
             $ref: "#/definitions/User"
       x-swagger-router-controller: "Default"
-  /group/{group_id}/messages:
+  /groups/{group_id}/messages:
     post:
       summary: "ユーザのメッセージ一送信"
-      operationId: "groupGroup_idMessagesPOST"
+      operationId: "groupsGroup_idMessagesPOST"
       parameters:
       - in: "body"
         name: "Message"

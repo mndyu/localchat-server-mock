@@ -3,40 +3,6 @@
 var utils = require('../utils/writer.js');
 var Default = require('../service/DefaultService');
 
-module.exports.groupGroup_idMembersGET = function groupGroup_idMembersGET (req, res, next) {
-  var group_id = req.swagger.params['group_id'].value;
-  Default.groupGroup_idMembersGET(group_id)
-    .then(function (response) {
-      utils.writeJson(res, response);
-    })
-    .catch(function (response) {
-      utils.writeJson(res, response);
-    });
-};
-
-module.exports.groupGroup_idMembersUser_idDELETE = function groupGroup_idMembersUser_idDELETE (req, res, next) {
-  var group_id = req.swagger.params['group_id'].value;
-  var user_id = req.swagger.params['user_id'].value;
-  Default.groupGroup_idMembersUser_idDELETE(group_id,user_id)
-    .then(function (response) {
-      utils.writeJson(res, response);
-    })
-    .catch(function (response) {
-      utils.writeJson(res, response);
-    });
-};
-
-module.exports.groupGroup_idMessagesPOST = function groupGroup_idMessagesPOST (req, res, next) {
-  var message = req.swagger.params['Message'].value;
-  Default.groupGroup_idMessagesPOST(message)
-    .then(function (response) {
-      utils.writeJson(res, response);
-    })
-    .catch(function (response) {
-      utils.writeJson(res, response);
-    });
-};
-
 module.exports.groupsGET = function groupsGET (req, res, next) {
   Default.groupsGET()
     .then(function (response) {
@@ -61,6 +27,40 @@ module.exports.groupsGroup_idDELETE = function groupsGroup_idDELETE (req, res, n
 module.exports.groupsGroup_idGET = function groupsGroup_idGET (req, res, next) {
   var group_id = req.swagger.params['group_id'].value;
   Default.groupsGroup_idGET(group_id)
+    .then(function (response) {
+      utils.writeJson(res, response);
+    })
+    .catch(function (response) {
+      utils.writeJson(res, response);
+    });
+};
+
+module.exports.groupsGroup_idMembersGET = function groupsGroup_idMembersGET (req, res, next) {
+  var group_id = req.swagger.params['group_id'].value;
+  Default.groupsGroup_idMembersGET(group_id)
+    .then(function (response) {
+      utils.writeJson(res, response);
+    })
+    .catch(function (response) {
+      utils.writeJson(res, response);
+    });
+};
+
+module.exports.groupsGroup_idMembersUser_idDELETE = function groupsGroup_idMembersUser_idDELETE (req, res, next) {
+  var group_id = req.swagger.params['group_id'].value;
+  var user_id = req.swagger.params['user_id'].value;
+  Default.groupsGroup_idMembersUser_idDELETE(group_id,user_id)
+    .then(function (response) {
+      utils.writeJson(res, response);
+    })
+    .catch(function (response) {
+      utils.writeJson(res, response);
+    });
+};
+
+module.exports.groupsGroup_idMessagesPOST = function groupsGroup_idMessagesPOST (req, res, next) {
+  var message = req.swagger.params['Message'].value;
+  Default.groupsGroup_idMessagesPOST(message)
     .then(function (response) {
       utils.writeJson(res, response);
     })
