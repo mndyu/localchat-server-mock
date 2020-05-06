@@ -26,6 +26,17 @@ module.exports.groupGroup_idMembersUser_idDELETE = function groupGroup_idMembers
     });
 };
 
+module.exports.groupGroup_idMessagesPOST = function groupGroup_idMessagesPOST (req, res, next) {
+  var message = req.swagger.params['Message'].value;
+  Default.groupGroup_idMessagesPOST(message)
+    .then(function (response) {
+      utils.writeJson(res, response);
+    })
+    .catch(function (response) {
+      utils.writeJson(res, response);
+    });
+};
+
 module.exports.groupsGET = function groupsGET (req, res, next) {
   Default.groupsGET()
     .then(function (response) {
@@ -60,7 +71,8 @@ module.exports.groupsGroup_idGET = function groupsGroup_idGET (req, res, next) {
 
 module.exports.groupsGroup_idPUT = function groupsGroup_idPUT (req, res, next) {
   var group_id = req.swagger.params['group_id'].value;
-  Default.groupsGroup_idPUT(group_id)
+  var group = req.swagger.params['group'].value;
+  Default.groupsGroup_idPUT(group_id,group)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -70,7 +82,8 @@ module.exports.groupsGroup_idPUT = function groupsGroup_idPUT (req, res, next) {
 };
 
 module.exports.groupsPOST = function groupsPOST (req, res, next) {
-  Default.groupsPOST()
+  var group = req.swagger.params['group'].value;
+  Default.groupsPOST(group)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -113,7 +126,8 @@ module.exports.messagesMessage_idGET = function messagesMessage_idGET (req, res,
 
 module.exports.messagesMessage_idPUT = function messagesMessage_idPUT (req, res, next) {
   var message_id = req.swagger.params['message_id'].value;
-  Default.messagesMessage_idPUT(message_id)
+  var message = req.swagger.params['message'].value;
+  Default.messagesMessage_idPUT(message_id,message)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -123,7 +137,8 @@ module.exports.messagesMessage_idPUT = function messagesMessage_idPUT (req, res,
 };
 
 module.exports.messagesPOST = function messagesPOST (req, res, next) {
-  Default.messagesPOST()
+  var message = req.swagger.params['Message'].value;
+  Default.messagesPOST(message)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -136,6 +151,17 @@ module.exports.usersGET = function usersGET (req, res, next) {
   var limit = req.swagger.params['limit'].value;
   var offset = req.swagger.params['offset'].value;
   Default.usersGET(limit,offset)
+    .then(function (response) {
+      utils.writeJson(res, response);
+    })
+    .catch(function (response) {
+      utils.writeJson(res, response);
+    });
+};
+
+module.exports.usersPOST = function usersPOST (req, res, next) {
+  var user = req.swagger.params['User'].value;
+  Default.usersPOST(user)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -179,7 +205,8 @@ module.exports.usersUser_idGroupsGET = function usersUser_idGroupsGET (req, res,
 
 module.exports.usersUser_idGroupsPOST = function usersUser_idGroupsPOST (req, res, next) {
   var user_id = req.swagger.params['user_id'].value;
-  Default.usersUser_idGroupsPOST(user_id)
+  var group = req.swagger.params['group'].value;
+  Default.usersUser_idGroupsPOST(user_id,group)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -199,20 +226,10 @@ module.exports.usersUser_idMessagesGET = function usersUser_idMessagesGET (req, 
     });
 };
 
-module.exports.usersUser_idMessagesPOST = function usersUser_idMessagesPOST (req, res, next) {
-  var user_id = req.swagger.params['user_id'].value;
-  Default.usersUser_idMessagesPOST(user_id)
-    .then(function (response) {
-      utils.writeJson(res, response);
-    })
-    .catch(function (response) {
-      utils.writeJson(res, response);
-    });
-};
-
 module.exports.usersUser_idPUT = function usersUser_idPUT (req, res, next) {
   var user_id = req.swagger.params['user_id'].value;
-  Default.usersUser_idPUT(user_id)
+  var user = req.swagger.params['User'].value;
+  Default.usersUser_idPUT(user_id,user)
     .then(function (response) {
       utils.writeJson(res, response);
     })

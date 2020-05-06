@@ -52,6 +52,30 @@ exports.groupGroup_idMembersUser_idDELETE = function(group_id,user_id) {
 
 
 /**
+ * ユーザのメッセージ一送信
+ *
+ * message Message Message (optional)
+ * returns Message
+ **/
+exports.groupGroup_idMessagesPOST = function(message) {
+  return new Promise(function(resolve, reject) {
+    var examples = {};
+    examples['application/json'] = {
+  "author" : 6,
+  "channel" : 1,
+  "id" : 0,
+  "text" : 5
+};
+    if (Object.keys(examples).length > 0) {
+      resolve(examples[Object.keys(examples)[0]]);
+    } else {
+      resolve();
+    }
+  });
+}
+
+
+/**
  * グループ一覧取得
  *
  * returns List
@@ -127,9 +151,10 @@ exports.groupsGroup_idGET = function(group_id) {
  * グループ更新
  *
  * group_id Integer グループID
+ * group Group group (optional)
  * returns Group
  **/
-exports.groupsGroup_idPUT = function(group_id) {
+exports.groupsGroup_idPUT = function(group_id,group) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
@@ -148,9 +173,10 @@ exports.groupsGroup_idPUT = function(group_id) {
 /**
  * グループ作成
  *
+ * group Group group (optional)
  * returns User
  **/
-exports.groupsPOST = function() {
+exports.groupsPOST = function(group) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
@@ -248,9 +274,10 @@ exports.messagesMessage_idGET = function(message_id) {
  * メッセージの更新
  *
  * message_id Integer メッセージID
+ * message Message message (optional)
  * returns Message
  **/
-exports.messagesMessage_idPUT = function(message_id) {
+exports.messagesMessage_idPUT = function(message_id,message) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
@@ -271,9 +298,10 @@ exports.messagesMessage_idPUT = function(message_id) {
 /**
  * メッセージの作成
  *
+ * message Message Message (optional)
  * returns Message
  **/
-exports.messagesPOST = function() {
+exports.messagesPOST = function(message) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
@@ -312,6 +340,30 @@ exports.usersGET = function(limit,offset) {
   "id" : 0,
   "ip_address" : "ip_address"
 } ];
+    if (Object.keys(examples).length > 0) {
+      resolve(examples[Object.keys(examples)[0]]);
+    } else {
+      resolve();
+    }
+  });
+}
+
+
+/**
+ * ユーザ
+ *
+ * user User User (optional)
+ * returns User
+ **/
+exports.usersPOST = function(user) {
+  return new Promise(function(resolve, reject) {
+    var examples = {};
+    examples['application/json'] = {
+  "pc_name" : "pc_name",
+  "name" : "name",
+  "id" : 0,
+  "ip_address" : "ip_address"
+};
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
     } else {
@@ -402,9 +454,10 @@ exports.usersUser_idGroupsGET = function(user_id) {
  * ユーザのグループ参加
  *
  * user_id Integer ユーザID
+ * group Group group (optional)
  * returns User
  **/
-exports.usersUser_idGroupsPOST = function(user_id) {
+exports.usersUser_idGroupsPOST = function(user_id,group) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
@@ -452,36 +505,13 @@ exports.usersUser_idMessagesGET = function(user_id) {
 
 
 /**
- * ユーザのメッセージ一送信
- *
- * user_id Integer ユーザID
- * returns User
- **/
-exports.usersUser_idMessagesPOST = function(user_id) {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = {
-  "pc_name" : "pc_name",
-  "name" : "name",
-  "id" : 0,
-  "ip_address" : "ip_address"
-};
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  });
-}
-
-
-/**
  * １ユーザ更新
  *
  * user_id Integer ユーザID
+ * user User User (optional)
  * returns User
  **/
-exports.usersUser_idPUT = function(user_id) {
+exports.usersUser_idPUT = function(user_id,user) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {

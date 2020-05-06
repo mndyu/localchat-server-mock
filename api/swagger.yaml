@@ -31,6 +31,22 @@ paths:
             items:
               $ref: "#/definitions/User"
       x-swagger-router-controller: "Default"
+    post:
+      summary: "ユーザ"
+      operationId: "usersPOST"
+      parameters:
+      - in: "body"
+        name: "User"
+        description: "User"
+        required: false
+        schema:
+          $ref: "#/definitions/User"
+      responses:
+        "200":
+          description: "ユーザ返信"
+          schema:
+            $ref: "#/definitions/User"
+      x-swagger-router-controller: "Default"
   /users/{user_id}:
     get:
       summary: "１ユーザ取得"
@@ -58,6 +74,12 @@ paths:
         required: true
         type: "integer"
         format: "int32"
+      - in: "body"
+        name: "User"
+        description: "User"
+        required: false
+        schema:
+          $ref: "#/definitions/User"
       responses:
         "200":
           description: "ユーザ返信"
@@ -99,22 +121,6 @@ paths:
             items:
               $ref: "#/definitions/User"
       x-swagger-router-controller: "Default"
-    post:
-      summary: "ユーザのメッセージ一送信"
-      operationId: "usersUser_idMessagesPOST"
-      parameters:
-      - name: "user_id"
-        in: "path"
-        description: "ユーザID"
-        required: true
-        type: "integer"
-        format: "int32"
-      responses:
-        "200":
-          description: "ユーザにメッセージ送信"
-          schema:
-            $ref: "#/definitions/User"
-      x-swagger-router-controller: "Default"
   /users/{user_id}/groups:
     get:
       summary: "？？"
@@ -144,6 +150,12 @@ paths:
         required: true
         type: "integer"
         format: "int32"
+      - in: "body"
+        name: "group"
+        description: "group"
+        required: false
+        schema:
+          $ref: "#/definitions/Group"
       responses:
         "200":
           description: "グループ参加"
@@ -166,7 +178,13 @@ paths:
     post:
       summary: "メッセージの作成"
       operationId: "messagesPOST"
-      parameters: []
+      parameters:
+      - in: "body"
+        name: "Message"
+        description: "Message"
+        required: false
+        schema:
+          $ref: "#/definitions/Message"
       responses:
         "200":
           description: "ユーザ返信"
@@ -200,6 +218,12 @@ paths:
         required: true
         type: "integer"
         format: "int32"
+      - in: "body"
+        name: "message"
+        description: "message"
+        required: false
+        schema:
+          $ref: "#/definitions/Message"
       responses:
         "200":
           description: "ユーザ返信"
@@ -238,7 +262,13 @@ paths:
     post:
       summary: "グループ作成"
       operationId: "groupsPOST"
-      parameters: []
+      parameters:
+      - in: "body"
+        name: "group"
+        description: "group"
+        required: false
+        schema:
+          $ref: "#/definitions/Group"
       responses:
         "200":
           description: "ユーザ返信"
@@ -272,6 +302,12 @@ paths:
         required: true
         type: "integer"
         format: "int32"
+      - in: "body"
+        name: "group"
+        description: "group"
+        required: false
+        schema:
+          $ref: "#/definitions/Group"
       responses:
         "200":
           description: "ユーザ返信"
@@ -336,6 +372,23 @@ paths:
           schema:
             $ref: "#/definitions/User"
       x-swagger-router-controller: "Default"
+  /group/{group_id}/messages:
+    post:
+      summary: "ユーザのメッセージ一送信"
+      operationId: "groupGroup_idMessagesPOST"
+      parameters:
+      - in: "body"
+        name: "Message"
+        description: "Message"
+        required: false
+        schema:
+          $ref: "#/definitions/Message"
+      responses:
+        "200":
+          description: "ユーザにメッセージ送信"
+          schema:
+            $ref: "#/definitions/Message"
+      x-swagger-router-controller: "Default"
 definitions:
   User:
     type: "object"
@@ -385,6 +438,15 @@ definitions:
     example:
       name: "name"
       id: 0
+  AccessGroup:
+    type: "object"
+    properties:
+      gid:
+        type: "integer"
+        format: "int32"
+      uid:
+        type: "integer"
+        format: "int32"
   Channel:
     type: "object"
     properties:
