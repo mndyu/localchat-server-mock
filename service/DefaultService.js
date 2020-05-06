@@ -124,7 +124,7 @@ exports.groupsGroup_idMembersUser_idDELETE = function(group_id,user_id) {
 
 
 /**
- * ユーザのメッセージ一送信
+ * group のメッセージ一送信
  *
  * message Message Message (optional)
  * returns Message

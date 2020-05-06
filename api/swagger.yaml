@@ -374,7 +374,7 @@ paths:
       x-swagger-router-controller: "Default"
   /groups/{group_id}/messages:
     post:
-      summary: "ユーザのメッセージ一送信"
+      summary: "group のメッセージ一送信"
       operationId: "groupsGroup_idMessagesPOST"
       parameters:
       - in: "body"
